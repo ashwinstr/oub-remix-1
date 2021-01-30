@@ -4,11 +4,11 @@ FROM sahyam/docker:groovy
 #
 # Clone repo and prepare working directory
 #
-RUN git clone -b sql-extended https://github.com/thegreatfoxxgoddess/oub-remix /root/userbot
+RUN git clone -b sql-extended https://github.com/Thegreatfoxxgoddess/oub-remix /root/userbot
 RUN mkdir /root/userbot/.bin
 WORKDIR /root/userbot
 
 #Install python requirements
-RUN pip3 install -r https://raw.githubusercontent.com/thegreatfoxxgoddess/oub-remix/sql-extended/requirements.txt
+RUN pip3 install -r https://raw.githubusercontent.com/Thegreatfoxxgoddess/oub-remix/sql-extended/requirements.txt
 
 CMD ["python3","-m","userbot"]
