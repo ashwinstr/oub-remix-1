@@ -26,7 +26,7 @@ from userbot.events import register
 
 # ========================= CONSTANTS ============================
 UNAPPROVED_MSG = (
-    "`Hey there! you texted me without approval`.\n`Talk to`[Kakashi](tg://user?id=1013414037)`to get approval for my pm \n\n`")
+    "`Hey there! you texted me without approval`.\nTalk to @kakashi_htk to get approval for my pm \n\n ")
 # =================================================================
 
 NO_PM_LOG_USERS = []
