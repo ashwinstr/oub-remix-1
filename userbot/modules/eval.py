@@ -5,9 +5,10 @@
 #
 """ Userbot module for executing code and terminal commands from Telegram. """
 import asyncio
+from getpass import getuser
 from os import remove
 from sys import executable
-from getpass import getuser
+
 from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP
 from userbot.events import register
 
@@ -72,7 +73,6 @@ async def evaluate(query):
 async def run(run_q):
     """ For .exec command, which executes the dynamically created program """
     code = run_q.pattern_match.group(1)
-
     if run_q.is_channel and not run_q.is_group:
         await run_q.edit("`Exec isn't permitted on channels!`")
         return
@@ -84,7 +84,7 @@ execute. Use .help exec for an example.```"
         )
         return
 
-    if code in ("userbot.session", "config.env"):
+    if code in ("userbot.session", "config.env", "env"):
         await run_q.edit("`That's a dangerous operation! Not Permitted!`")
         return
 
@@ -153,7 +153,7 @@ async def terminal_runner(term):
             "``` Give a command or use .help term for an example.```"
         )
 
-    if command in ("userbot.session", "config.env"):
+    if command in ("userbot.session", "config.env", "env", "$", "$*", "echo"):
         return await term.edit("`That's a dangerous operation! Not Permitted!`")
 
     process = await asyncio.create_subprocess_shell(
@@ -179,14 +179,12 @@ async def terminal_runner(term):
     else:
         await term.edit("`" f"{curruser}:~$ {command}" f"\n{result}" "`")
 
-
-"""
     if BOTLOG:
         await term.client.send_message(
             BOTLOG_CHATID,
             "Terminal Command " + command + " was executed sucessfully",
         )
-"""
+
 
 CMD_HELP.update(
     {
@@ -194,8 +192,6 @@ CMD_HELP.update(
 \nUsage: Evalute mini-expressions.\
 \n\n`.exec` print('hello')\
 \nusage: Execute small python scripts.\
-\n\n`.w3m google.com`\
-\nUsage: Browse the internet with w3m on your server.\nPut your device into landscape mode for better preview.\
 \n\n`.term` ls\
 \nUsage: Run bash commands and scripts on your server."
     }
