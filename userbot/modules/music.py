@@ -77,15 +77,15 @@ async def _(event):
         if reply.message:
             query = reply.messag
     else:
-        event = await event.edit("`What I am Supposed to find `")
+        event = await event.edit("`error 404`")
         return
-    event = await event.edit("`wi8..! I am finding your song....`")
+    event = await event.edit("searching, please wait...")
     await catmusic(str(query), "128k", event)
     l = glob.glob("./temp/*.mp3")
     if l:
-        await event.edit("yeah..! i found something wi8..🥰")
+        await event.edit("Downloading, Please wait...")
     else:
-        await event.edit(f"Sorry..! i can't find anything with `{query}`")
+        await event.edit(f"error `{query}` not found")
         return
     thumbcat = glob.glob("./temp/*.jpg") + glob.glob("./temp/*.webp")
     if thumbcat:
@@ -121,15 +121,15 @@ async def _(event):
         if reply.message:
             query = reply.message
     else:
-        event = await event.edit("`What I am Supposed to find `")
+        event = await event.edit("`error 404`")
         return
-    event = await event.edit("`wi8..! I am finding your song....`")
+    event = await event.edit("`searching, please wait...`")
     await catmusic(str(query), "320k", event)
     l = glob.glob("./temp/*.mp3")
     if l:
-        await event.edit("yeah..! i found something wi8..🥰")
+        await event.edit("downloading, please wait...")
     else:
-        await event.edit(f"Sorry..! i can't find anything with `{query}`")
+        await event.edit(f"error `{query}` not found")
         return
     thumbcat = glob.glob("./temp/*.jpg") + glob.glob("./temp/*.webp")
     if thumbcat:
@@ -180,17 +180,17 @@ async def _(event):
     reply = await event.get_reply_message()
     if event.pattern_match.group(1):
         query = event.pattern_match.group(1)
-        await event.edit("`Wait..! I am finding your videosong..`")
+        await event.edit("`searching for your videosong...`")
     elif reply:
         query = str(reply.message)
-        await event.edit("`Wait..! I am finding your videosong..`")
+        await event.edit("`searching for your song...`")
     else:
-        await event.edit("`What I am Supposed to find?`")
+        await event.edit("`error 404`")
         return
     await getmusicvideo(query)
     l = glob.glob(("*.mp4")) + glob.glob(("*.mkv")) + glob.glob(("*.webm"))
     if l:
-        await event.edit("`Yeah..! i found something..`")
+        await event.edit("`search finished, uploading...`")
     else:
         await event.edit(f"`Sorry..! i can't find anything with` **{query}**")
         return
