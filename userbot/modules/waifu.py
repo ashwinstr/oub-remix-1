@@ -8,6 +8,7 @@ from re import sub
 import random
 import datetime
 import asyncio
+import aiohttp
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from os import execl
 import time
@@ -20,6 +21,8 @@ import io
 import html
 import json
 from PIL import ImageEnhance, ImageOps
+from urllib.parse import quote as urlencode
+
 
 from userbot import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, bot
 from userbot.events import register
@@ -144,6 +147,26 @@ async def _(hazmat):
                                                  [msg.id, response.id])
     await hazmat.delete()
     return os.remove(downloaded_file_name)
+
+@register(outgoing=True, pattern=r"^.pat(?: |$)")
+async def pat(e):
+    global _pats
+
+    url = "https://headp.at/js/pats.json"
+    if not _pats:
+        async with aiohttp.ClientSession() as session:
+            async with session.post(url) as raw_resp:
+                resp = await raw_resp.text()
+        _pats = json.loads(resp)
+    pats = _pats
+
+    pats = [i for i in pats if os.path.splitext(i)[1] == ".gif"]
+
+    pat = random.choice(pats)
+    link = f"https://headp.at/pats/{urlencode(pat)}"
+
+    await asyncio.wait([e.respond(file=link, reply_to=e.reply_to_msg_id), e.delete()])
+
 
 CMD_HELP.update({
     "waifu":
