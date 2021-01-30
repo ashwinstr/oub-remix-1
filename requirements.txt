@@ -88,3 +88,6 @@ vcsi
 lottie
 wand
 colour
+PyDictionary
+scipy
+wordcloud
