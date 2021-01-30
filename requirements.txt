@@ -91,3 +91,4 @@ colour
 scipy
 wordcloud
 nekos
+PyDictionary
