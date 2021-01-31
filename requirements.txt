@@ -89,4 +89,3 @@ vcsi
 lottie
 wand
 colour
-neko
