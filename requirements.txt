@@ -33,6 +33,7 @@ fontTools
 psycopg2
 psycopg2-binary
 pybase64>=0.4.0
+PyDictionary
 pylast
 pySmartDL
 python-barcode
