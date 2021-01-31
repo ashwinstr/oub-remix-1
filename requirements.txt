@@ -81,6 +81,11 @@ bitlyshortener
 validators
 geopy
 glitch_this
+asyncio
+logging
+os
+time
+datetime
 twitter_scraper
 pyaztro
 jikanpy
@@ -88,3 +93,6 @@ vcsi
 lottie
 wand
 colour
+scipy
+wordcloud
+nekos
