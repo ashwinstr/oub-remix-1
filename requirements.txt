@@ -89,4 +89,4 @@ vcsi
 lottie
 wand
 colour
-nekos
+neko
