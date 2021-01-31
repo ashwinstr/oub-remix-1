@@ -83,7 +83,6 @@ geopy
 glitch_this
 asyncio
 logging
-os
 time
 datetime
 twitter_scraper
