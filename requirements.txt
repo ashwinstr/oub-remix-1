@@ -81,10 +81,6 @@ bitlyshortener
 validators
 geopy
 glitch_this
-asyncio
-logging
-time
-datetime
 twitter_scraper
 pyaztro
 jikanpy
@@ -95,3 +91,4 @@ colour
 scipy
 wordcloud
 nekos
+PyDictionary
