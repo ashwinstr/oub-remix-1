@@ -169,7 +169,7 @@ async def upstream(event):
 
     if changelog == '' and force_update is False:
         await event.edit(
-            f'\n`{TERM_ALIAS} is` **updated-af🤘🤘**\n`BRANCH:`**{UPSTREAM_REPO_BRANCH}**\n')
+            f'\n`{TERM_ALIAS} is` **up-to-date**\n`BRANCH:`**{UPSTREAM_REPO_BRANCH}**\n')
         return repo.__del__()
         await asyncio.sleep(7.5)
         await event.delete()
@@ -189,7 +189,7 @@ async def upstream(event):
             remove("output.txt")
         else:
             await event.edit(changelog_str)
-        return await event.respond('`do ".update now/deploy" to update`')
+        return await event.respond('do ".update now/deploy" to update')
 
     if force_update:
         await event.edit(
