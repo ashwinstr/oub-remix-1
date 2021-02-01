@@ -91,3 +91,4 @@ wand
 colour
 scipy
 wordcloud
+nekos
