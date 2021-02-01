@@ -372,7 +372,7 @@ async def text_to_speech(query):
         )
         os.remove(required_file_name)
         await query.edit("Processed {} ({}) in {} seconds!".format(text[0:97], lan, ms))
-        await asyncio.sleep(5)
+        await asyncio.sleep(1)
         await query.delete()
     except Exception as e:
         await query.edit(str(e))
