@@ -2,7 +2,6 @@ import asyncio
 import json
 import os
 import random
-import nekos
 from asyncio import sleep
 from urllib.parse import quote as urlencode
 
