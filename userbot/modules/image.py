@@ -1,7 +1,6 @@
 # image search for catuserbot
 import os
 import shutil
-import googleimagesdownload
 
 @register(outgoing=True, pattern="^.img (.*)")
 async def img_sampler(event):
